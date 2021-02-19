@@ -9,10 +9,14 @@ function App() {
   const url = `https://dog.ceo/api/breed/${breed}/images`;
 
   const getData = async () => {
-    const results = await axios.get(url);
-    const sliced = results.data.message.slice(0, 20);
-    setDogs(sliced);
-    console.log(results.data.message);
+    try {
+      const results = await axios.get(url);
+      const sliced = results.data.message.slice(0, 20);
+      setDogs(sliced);
+      console.log(results.data.message);
+    } catch (error) {
+      alert("The specific breed doesn't exist");
+    }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
