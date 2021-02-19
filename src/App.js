@@ -25,14 +25,14 @@ function App() {
   };
   return (
     <div className="app">
-      <h1>Dogs Image Search</h1>
+      <h1>Dogs Breed Search</h1>
       <div className="search__box">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             className="search__box-input"
             placeholder="Search for a breed"
-            value={breed}
+            value={breed.toLowerCase()}
             onChange={(e) => {
               setBreed(e.target.value);
             }}
@@ -41,6 +41,13 @@ function App() {
         </form>
       </div>
       <div className="dog__box">
+        {dogs.length === 0 && (
+          <p>
+            Example: hound, doberman, affenpinscher,
+            african,bouvier,elkhound,husky , mexicanhairless , schipperke ,
+            terrier ,vizsla , waterdog , wolfhound
+          </p>
+        )}
         {dogs.map((dog) => (
           <div className="img__container" id={uuidv4()}>
             <img src={dog} alt="dog" />
