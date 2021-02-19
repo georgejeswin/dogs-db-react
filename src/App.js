@@ -37,7 +37,12 @@ function App() {
               setBreed(e.target.value);
             }}
           />
-          <input type="submit" className="search__box-button" value="Search" />
+          <input
+            type="submit"
+            disabled={breed == ""}
+            className="search__box-button"
+            value="Search"
+          />
         </form>
       </div>
       <div className="dog__box">
