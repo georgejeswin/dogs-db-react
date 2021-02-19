@@ -39,7 +39,7 @@ function App() {
           />
           <input
             type="submit"
-            disabled={breed == ""}
+            disabled={breed === ""}
             className="search__box-button"
             value="Search"
           />
