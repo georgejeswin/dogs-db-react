@@ -18,6 +18,7 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 40px;
 }
 
 .search__box-input {
@@ -38,4 +39,21 @@ form {
 }
 input:focus {
   outline: none;
+}
+.img__container {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  object-fit: contain;
+  align-items: center;
+}
+img {
+  max-width: 250px;
+  margin: 10px;
+}
+.dog__box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }

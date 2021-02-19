@@ -1,18 +1,23 @@
 import axios from "axios";
 import { useState } from "react";
 import "./App.css";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [breed, setBreed] = useState("");
+  const [dogs, setDogs] = useState([]);
   const url = `https://dog.ceo/api/breed/${breed}/images`;
 
   const getData = async () => {
     const results = await axios.get(url);
+    const sliced = results.data.message.slice(0, 20);
+    setDogs(sliced);
     console.log(results.data.message);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     getData();
+    setBreed("");
   };
   return (
     <div className="app">
@@ -31,7 +36,13 @@ function App() {
           <input type="submit" className="search__box-button" value="Search" />
         </form>
       </div>
-      <div className="dog__box"></div>
+      <div className="dog__box">
+        {dogs.map((dog) => (
+          <div className="img__container" id={uuidv4()}>
+            <img src={dog} alt="dog" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
